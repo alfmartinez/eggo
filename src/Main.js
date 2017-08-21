@@ -1,7 +1,23 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {selectMob,selectSetting} from './store/selection/actions';
 
-const Main = () => (
-    <div>MAIN</div>
+const displayEggo = ({status}) => (
+    <div>{status}</div>
 );
 
-export default Main;
+const Main = ({world,selectMob,selectSetting}) => (
+    <div>
+        { world.setting.map(item => <div onClick={() => selectSetting(item)} key={item.id}>{item.type}</div>) }
+        { world.mobs.map(item => <div onClick={() => selectMob(item)} key={item.id}>{item.type}</div>) }
+        { displayEggo(world.eggo) }
+    </div>
+);
+
+const mapStateToProps = ({world}) => ({world});
+const dispatchToProps = {
+    selectMob: selectMob,
+    selectSetting: selectSetting
+};
+
+export default connect(mapStateToProps,dispatchToProps)(Main);

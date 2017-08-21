@@ -1,7 +1,12 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-const Details = () => (
-    <div>DETAILS</div>
+const Details = ({selection}) => (
+    <div>
+        {selection ? selection.type:''}
+    </div>
 );
 
-export default Details;
+const mapStateToProps = ({selection}) => ({selection});
+
+export default connect(mapStateToProps)(Details);
