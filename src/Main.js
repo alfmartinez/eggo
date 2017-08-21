@@ -9,7 +9,7 @@ const displayEggo = ({status}) => (
 const Main = ({world,selectMob,selectSetting}) => (
     <div>
         { world.setting.map(item => <div onClick={() => selectSetting(item)} key={item.id}>{item.type}</div>) }
-        { world.mobs.map(item => <div onClick={() => selectMob(item)} key={item.id}>{item.type}</div>) }
+        { world.mobs.map(item => <span className="egg" onClick={() => selectMob(item)} key={item.id}>{item.type}</span>) }
         { displayEggo(world.eggo) }
     </div>
 );
