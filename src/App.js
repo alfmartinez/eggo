@@ -11,9 +11,9 @@ class App extends Component {
         return (
             <Grid className="App container">
                 <Row>
-                    <Col md={2}><Commands/></Col>
-                    <Col md={8}><Main/></Col>
-                    <Col md={2}><Details/></Col>
+                    <Col xs={2} md={2}><Commands/></Col>
+                    <Col xs={8} md={8}><Main/></Col>
+                    <Col xs={2} md={2}><Details/></Col>
                 </Row>
             </Grid>
         );
