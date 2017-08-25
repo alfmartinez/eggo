@@ -4,11 +4,21 @@ const initialState = {
     r: 10,
     stroke: "black",
     strokeWidth: 3,
-    fill: "white"
+    fill: "white",
+    heading: null
 };
 
 const eggo = (state = initialState, action) => {
-    return state;
+    switch (action.type) {
+        case 'SET_TARGET':
+            const {x,y} = action;
+            return {
+                ...state,
+                heading: {x,y}
+            };
+        default:
+        return state;
+    }
 };
 
 export default eggo;
