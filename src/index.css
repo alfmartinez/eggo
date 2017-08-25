@@ -13,6 +13,11 @@ body {
 }
 
 
-.row div, .row div .panel {
+.row div, .row div .panel-body {
   height: 100%;
+}
+
+div.controls, div.panel-heading {
+  height: 36px;
+  padding: 0px;
 }

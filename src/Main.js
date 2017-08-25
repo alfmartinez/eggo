@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {selectMob, selectSetting} from './store/selection/actions';
-import {setTarget} from './store/world/actions';
-import {Panel} from "react-bootstrap";
+import {setTarget, startGame, stopGame} from './store/world/actions';
+import {Panel, Button, Glyphicon} from "react-bootstrap";
 
 let point, svg;
 
@@ -17,8 +17,13 @@ function getClickedPosition(evt) {
     return cursorpt;
 }
 
-const Main = ({world, selectMob, selectSetting, setTarget}) => (
-    <Panel>
+const Main = ({world, selectMob, selectSetting, setTarget, startGame, stopGame}) => (
+    <Panel bsStyle="info" header={
+        <div className="controls">
+            <Button onClick={() => startGame()} active={!world.paused}><Glyphicon glyph="play"/></Button>
+            <Button onClick={() => stopGame()} active={world.paused}><Glyphicon glyph="pause"/></Button>
+        </div>
+    }>
         <svg
             width="100%"
             height="100%"
@@ -48,7 +53,9 @@ const mapStateToProps = ({world}) => ({world});
 const dispatchToProps = {
     selectMob: selectMob,
     selectSetting: selectSetting,
-    setTarget: setTarget
+    setTarget: setTarget,
+    startGame: startGame,
+    stopGame: stopGame
 };
 
 export default connect(mapStateToProps, dispatchToProps)(Main);
