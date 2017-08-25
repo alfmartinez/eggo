@@ -6,9 +6,9 @@ import {Panel, Button, Glyphicon} from "react-bootstrap";
 
 let point, svg;
 
-const displayEggo = ({heading, speed, ...props}) => (
-    <circle {...props}/>
-);
+const displayEggo = ({velocity, heading, speed,health, ...props}) => <circle {...props}/>;
+const displayMob = ({id,behaviors, ...props}) => <circle {...props} key={id}/>;
+const displaySetting = ({id, ...props}) => <circle {...props} key={id}/>;
 
 function getClickedPosition(evt) {
     point.x = evt.clientX;
@@ -42,8 +42,8 @@ const Main = ({world, selectMob, selectSetting, setTarget, startGame, stopGame})
                   fill="beige"
                   onClick={e => setTarget(getClickedPosition(e))}
             />
-            {world.setting.map(item => <circle {...item} key={item.id}/>)}
-            {world.mobs.map(item => <circle {...item} key={item.id}/>)}
+            {world.setting.map(item => displaySetting(item))}
+            {world.mobs.map(item => displayMob(item))}
             {displayEggo(world.eggo)}
         </svg>
     </Panel>

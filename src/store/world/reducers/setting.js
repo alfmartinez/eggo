@@ -1,7 +1,7 @@
 const initialState = [{
     id: "box1",
-    cx: 600,
-    cy: 200,
+    cx: 400,
+    cy: 300,
     r: 10,
     stroke: "black",
     strokeWidth: 3,
