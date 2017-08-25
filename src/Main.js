@@ -6,7 +6,7 @@ import {Panel, Button, Glyphicon} from "react-bootstrap";
 
 let point, svg;
 
-const displayEggo = ({heading, ...props}) => (
+const displayEggo = ({heading, speed, ...props}) => (
     <circle {...props}/>
 );
 

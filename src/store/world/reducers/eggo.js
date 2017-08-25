@@ -5,7 +5,8 @@ const initialState = {
     stroke: "black",
     strokeWidth: 3,
     fill: "white",
-    heading: null
+    heading: null,
+    speed: 5
 };
 
 const eggo = (state = initialState, action) => {
@@ -15,6 +16,15 @@ const eggo = (state = initialState, action) => {
             return {
                 ...state,
                 heading: {x,y}
+            };
+        case 'EGGO_MOVE':
+            const {vector} = action;
+            const cx = state.cx + vector.x;
+            const cy = state.cy + vector.y;
+            return {
+                ...state,
+                cx,
+                cy
             };
         default:
         return state;
