@@ -26,6 +26,11 @@ const eggo = (state = initialState, action) => {
                 cx,
                 cy
             };
+        case 'EGGO_STOP':
+            return {
+                ...state,
+                heading: null
+            };
         default:
         return state;
     }
